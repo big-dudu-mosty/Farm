@@ -309,16 +309,7 @@ npm run test:gas      # Gas优化测试
 
 - [Monad官网](https://monad.xyz)
 - [Monad测试网区块浏览器](https://testnet-explorer.monad.xyz)
-- [项目文档](https://docs.farm3.xyz)
-- [GitHub仓库](https://github.com/farm3-xyz)
 
-## 📞 支持
-
-如有问题或建议，请：
-
-- 创建 Issue: [GitHub Issues](https://github.com/farm3-xyz/issues)
-- 加入 Discord: [Farm 3.0社区](https://discord.gg/farm3xyz)
-- 邮件联系: support@farm3.xyz
 
 ## 🚀 路线图
 
