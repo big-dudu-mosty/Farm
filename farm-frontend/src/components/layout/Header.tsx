@@ -3,7 +3,7 @@ import { useAccount, useDisconnect } from 'wagmi'
 import { ChevronDownIcon, Bars3Icon } from '@heroicons/react/24/outline'
 import { useState } from 'react'
 
-import { Button } from '@/components/ui'
+// import { Button } from '@/components/ui'
 import { WalletConnection } from '@/components/web3/WalletConnection'
 import { formatAddress, formatEth, formatKind } from '@/utils'
 import { useKindBalance, useNativeBalance } from '@/hooks/web3'

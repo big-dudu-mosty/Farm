@@ -18,7 +18,7 @@ export function PlayerStatsDemo() {
     isLoading
   } = usePlayerStats()
 
-  const { data: achievementsData, isLoading: achievementsLoading } = usePlayerAchievements()
+  const { data: achievementsData } = usePlayerAchievements()
 
   if (isLoading) {
     return (

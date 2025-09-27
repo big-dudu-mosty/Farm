@@ -38,8 +38,8 @@ export function useLandInfoOptimized() {
       watch: false, // 禁用实时监听，减少请求
       cacheTime: 5 * 60 * 1000, // 5分钟缓存
       staleTime: 30 * 1000, // 30秒过期
-      retry: 3, // 重试3次
-      retryDelay: 1000, // 重试延迟1秒
+      // retry: 3, // 重试3次
+      // retryDelay: 1000, // 重试延迟1秒
     })
   )
 

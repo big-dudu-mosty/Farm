@@ -312,5 +312,14 @@ export function canUseBooster(
     }
   }
 
+  // 可以根据道具类型添加更多检查逻辑
+  // 例如：某些道具可能有特殊限制
+  if (boosterType === BoosterType.Fertilizing && seedInfo.boostersApplied >= 5) {
+    return {
+      canUse: false,
+      reason: '施肥道具使用次数已达上限'
+    }
+  }
+
   return { canUse: true }
 }
