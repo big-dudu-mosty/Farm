@@ -134,10 +134,11 @@ export function usePlayerAchievementActivity() {
         return []
       }
 
-      const achievementActivities = []
+      const achievementActivities: any[] = []
 
       // 基于成就解锁状态生成活动
-      achievementsData.achievements.forEach((achievement, index) => {
+      const achievements = (achievementsData as any)?.achievements || []
+      achievements.forEach((achievement: any, index: number) => {
         if (achievement.unlocked) {
           achievementActivities.push({
             id: `achievement_${achievement.id}`,

@@ -12,7 +12,7 @@ export function useLandInfoOptimized() {
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<Error | null>(null)
   const [lastUpdate, setLastUpdate] = useState(Date.now())
-  const [refreshKey, setRefreshKey] = useState(0)
+  // const [refreshKey, setRefreshKey] = useState(0)
   const [currentBatch, setCurrentBatch] = useState(0)
   
   // 分批加载：每批20个土地，总共5批
@@ -100,7 +100,7 @@ export function useLandInfoOptimized() {
     // 重置到第一批并清空现有数据
     setCurrentBatch(0)
     setLands({})
-    setRefreshKey(prev => prev + 1)
+    // setRefreshKey(prev => prev + 1)
     setLastUpdate(Date.now())
     setError(null)
     console.log('Refreshing land data...')

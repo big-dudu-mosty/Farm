@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useAccount } from 'wagmi'
+import { toast } from 'react-hot-toast'
 import {
   Modal,
   ModalBody,
@@ -100,13 +101,24 @@ export function LandActionModal({
   }
 
   const handleSteal = async () => {
+    console.log('偷菜按钮被点击')
+    console.log('stealMutation:', stealMutation)
+    console.log('stealMutation.write:', stealMutation.write)
+    console.log('stealMutation.isLoading:', stealMutation.isLoading)
+    console.log('stealMutation.error:', stealMutation.error)
+    
     try {
       if (stealMutation.write) {
+        console.log('开始执行偷菜交易...')
         await stealMutation.write()
         onClose()
+      } else {
+        console.error('stealMutation.write 不可用')
+        toast.error('偷菜功能暂时不可用，请检查钱包连接')
       }
     } catch (error) {
       console.error('Steal failed:', error)
+      toast.error(`偷菜失败: ${error}`)
     }
   }
 
@@ -543,13 +555,26 @@ export function LandActionModal({
         )}
 
         {landInfo.state === LandState.Ripe && !isOwner && (
-          <Button
-            variant="warning"
-            onClick={handleSteal}
-            loading={stealMutation.isLoading}
-          >
-            偷菜
-          </Button>
+          <div className="space-y-2">
+            <Button
+              variant="warning"
+              onClick={handleSteal}
+              loading={stealMutation.isLoading}
+              disabled={!stealMutation.write}
+            >
+              偷菜
+            </Button>
+            
+            {/* 调试信息 */}
+            <div className="text-xs text-gray-500 bg-gray-100 p-2 rounded">
+              <div>Land ID: {landId}</div>
+              <div>Write Available: {stealMutation.write ? 'Yes' : 'No'}</div>
+              <div>Loading: {stealMutation.isLoading ? 'Yes' : 'No'}</div>
+              <div>Error: {stealMutation.error?.message || 'None'}</div>
+              <div>Address: {address}</div>
+              <div>Owner: {landInfo.currentFarmer}</div>
+            </div>
+          </div>
         )}
 
         {landInfo.state === LandState.LockedIdle && (

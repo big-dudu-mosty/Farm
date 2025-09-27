@@ -39,7 +39,7 @@ export function throttle<T extends (...args: unknown[]) => unknown>(
   func: T,
   limit: number
 ): (...args: Parameters<T>) => void {
-  let lastFunc: NodeJS.Timeout | null = null
+  let lastFunc: ReturnType<typeof setTimeout> | null = null
   let lastRan: number | null = null
 
   return function throttled(...args: Parameters<T>) {

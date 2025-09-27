@@ -6,8 +6,8 @@ export const APP_CONFIG = {
   name: 'Farm 3.0',
   description: 'Blockchain Farming Game on Monad',
   version: '1.0.0',
-  isDevelopment: import.meta.env?.DEV || false,
-  isProduction: import.meta.env?.PROD || true,
+  isDevelopment: false, // 生产环境
+  isProduction: true,   // 生产环境
 } as const
 
 // 网络配置

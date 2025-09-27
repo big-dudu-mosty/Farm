@@ -17,8 +17,8 @@ const { chains, publicClient, webSocketPublicClient } = configureChains(
         webSocket: undefined, // Monad 暂时可能不支持 WebSocket
       }),
       // 添加重试和错误处理配置
-      retryCount: 3,
-      retryDelay: 1000,
+      // retryCount: 3,
+      // retryDelay: 1000,
     }),
     publicProvider(),
   ]
